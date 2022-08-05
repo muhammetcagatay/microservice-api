@@ -6,7 +6,7 @@ namespace Movie.API.Models.Entities
 {
     public class Comment : IEntity
     {
-        [BsonRepresentation(BsonType.String)]
+        [BsonRepresentation(BsonType.ObjectId)]
         public string FilmId { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
