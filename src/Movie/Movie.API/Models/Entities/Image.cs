@@ -10,7 +10,5 @@ namespace Movie.API.Models.Entities
 
         [BsonRepresentation(BsonType.ObjectId)]
         public string FilmId { get; set; }
-        [BsonIgnore]
-        public Film Film { get; set; }
     }
 }

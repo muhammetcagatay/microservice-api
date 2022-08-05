@@ -24,11 +24,8 @@ namespace Movie.API.Models.Entities
 
         [BsonRepresentation(BsonType.ObjectId)]
         public string DirectorId { get; set; }
-
-        [BsonIgnore]
-        public Category Category { get; set; }
-        [BsonIgnore]
-        public Director Director { get; set; }
+        [BsonRepresentation(BsonType.ObjectId)]
+        public List<string> Actors { get; set; }
     }
 
 }
