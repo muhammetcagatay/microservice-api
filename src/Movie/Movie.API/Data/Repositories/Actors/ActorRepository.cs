@@ -2,9 +2,9 @@
 
 namespace Movie.API.Data.Repositories.Actors
 {
-    public class CategoryRepository : GenericRepository<Actor>, ICategoriesRepository
+    public class ActorRepository : GenericRepository<Actor>, IActorRepository
     {
-        public CategoryRepository(IMongoDataContext context) : base(context)
+        public ActorRepository(IMongoDataContext context) : base(context)
         {
         }
     }

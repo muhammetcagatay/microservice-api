@@ -2,7 +2,7 @@
 
 namespace Movie.API.Data.Repositories.Actors
 {
-    public interface ICategoriesRepository : IRepository<Actor>
+    public interface IActorRepository : IRepository<Actor>
     {
 
     }

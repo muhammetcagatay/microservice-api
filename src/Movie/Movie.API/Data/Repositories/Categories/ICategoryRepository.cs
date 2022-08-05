@@ -2,7 +2,7 @@
 
 namespace Movie.API.Data.Repositories.Categories
 {
-    public interface ICategoriesRepository : IRepository<Category>
+    public interface ICategoryRepository : IRepository<Category>
     {
 
     }

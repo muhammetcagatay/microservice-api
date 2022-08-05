@@ -2,7 +2,7 @@
 
 namespace Movie.API.Data.Repositories.Comments
 {
-    public interface ICommentsRepository : IRepository<Comment>
+    public interface ICommentRepository : IRepository<Comment>
     {
 
     }

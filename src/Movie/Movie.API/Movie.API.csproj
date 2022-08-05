@@ -7,13 +7,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="11.0.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
     <PackageReference Include="MongoDB.Bson" Version="2.17.1" />
     <PackageReference Include="MongoDB.Driver" Version="2.17.1" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Models\Response\" />
-    <Folder Include="Models\Request\" />
+    <Folder Include="Services\Categories\" />
+    <Folder Include="Services\Comments\" />
+    <Folder Include="Services\Directors\" />
+    <Folder Include="Services\Films\" />
+    <Folder Include="Services\Images\" />
   </ItemGroup>
 
 </Project>

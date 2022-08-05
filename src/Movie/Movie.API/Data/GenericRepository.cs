@@ -1,6 +1,5 @@
 ﻿using MongoDB.Driver;
 using Movie.API.Models.Base;
-using System.Linq.Expressions;
 
 namespace Movie.API.Data
 {
@@ -29,13 +28,15 @@ namespace Movie.API.Data
         {
             await _collection.InsertOneAsync(entity);
         }
-        public async Task UpdateAsync(T entity)
+        public async Task UpdateAsync(string id,T entity)
         {
-            await _collection.ReplaceOneAsync(x => x.Id == entity.Id, entity);
+            entity.UpdateDate = DateTime.Now;
+
+            await _collection.ReplaceOneAsync(x => x.Id == id, entity);
         }
         public async Task DeleteAsync(string id)
         {
             await _collection.DeleteOneAsync(x => x.Id == id);
-        } 
+        }
     }
 }
