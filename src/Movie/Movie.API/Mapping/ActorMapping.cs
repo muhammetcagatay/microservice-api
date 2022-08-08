@@ -11,13 +11,9 @@ namespace Movie.API.Mapping
         {
             CreateMap<Actor, ResponseActor>().ReverseMap();
             CreateMap<Actor, ResponseCreateActor>().ReverseMap();
-            CreateMap<Actor, ResponseDeleteActor>().ReverseMap();
             CreateMap<Actor, ResponseGetActor>().ReverseMap();
             CreateMap<Actor, ResponseGetActorWithFilms>().ReverseMap();
-            CreateMap<Actor, ResponseUpdateActor>().ReverseMap();
             CreateMap<Actor, RequestActor>().ReverseMap();
-            CreateMap<Actor, RequestCreateActor>().ReverseMap();
-            CreateMap<Actor, RequestUpdateActor>().ReverseMap();
         }
     }
 }

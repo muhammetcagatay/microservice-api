@@ -1,8 +1,8 @@
 ﻿using Movie.API.Models.Enums;
 
-namespace Movie.API.Models.Response.Films
+namespace Movie.API.Models.Request.Films
 {
-    public class ResponseFilm : BaseResponse
+    public class RequestFilm
     {
         public string Name { get; set; }
         public string Description { get; set; }
@@ -10,6 +10,7 @@ namespace Movie.API.Models.Response.Films
         public Country Country { get; set; }
         public Language Language { get; set; }
         public int PublicationYear { get; set; }
-        public string CategoryName { get; set; }
+        public string CategoryId { get; set; }
+        public List<string> ActorsId { get; set; }
     }
 }

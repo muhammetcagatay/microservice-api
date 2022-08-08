@@ -44,18 +44,20 @@ namespace Movie.API.Services.Actors
 
             var films = new List<ResponseGetFilm>();
 
-            foreach (var item in actor.Films)
+            if(actor.FilmsId!=null)
             {
-                films.Add(_mapper.Map<ResponseGetFilm>(await _filmRepository.GetAsync(item)));
+                foreach (var item in actor.FilmsId)
+                {
+                    films.Add(_mapper.Map<ResponseGetFilm>(await _filmRepository.GetAsync(item)));
+                }
             }
-
             responseGetActorWithFilms.Films = films;
 
             return Response<ResponseGetActorWithFilms>.Success(200, responseGetActorWithFilms);
         }
-        public async Task<Response<ResponseCreateActor>> CreateAsync(RequestCreateActor requestCreateActor)
+        public async Task<Response<ResponseCreateActor>> CreateAsync(RequestActor requestActor)
         {
-            var actor = _mapper.Map<Actor>(requestCreateActor);
+            var actor = _mapper.Map<Actor>(requestActor);
 
             await _actorRepository.CreateAsync(actor);
 
@@ -63,29 +65,29 @@ namespace Movie.API.Services.Actors
 
             return Response<ResponseCreateActor>.Success(200, responseCreateActor);
         }
-        public async Task<Response<ResponseUpdateActor>> UpdateAsync(string id, RequestUpdateActor requestUpdateActor)
+        public async Task<Response<ResponseActor>> UpdateAsync(string id, RequestActor requestActor)
         {
             var actor = await _actorRepository.GetAsync(id);
 
-            actor.FirstName = requestUpdateActor.FirstName;
-            actor.LastName = requestUpdateActor.LastName;
-            actor.BirthDayDate = requestUpdateActor.BirthDayDate;
+            actor.FirstName = requestActor.FirstName;
+            actor.LastName = requestActor.LastName;
+            actor.BirthDayDate = requestActor.BirthDayDate;
 
             await _actorRepository.UpdateAsync(id,actor);
 
-            var responseUpdateActor = _mapper.Map<ResponseUpdateActor>(actor);
+            var responseActor = _mapper.Map<ResponseActor>(actor);
 
-            return Response<ResponseUpdateActor>.Success(200, responseUpdateActor);
+            return Response<ResponseActor>.Success(200, responseActor);
         }
-        public async Task<Response<ResponseDeleteActor>> RemoveAsync(string id)
+        public async Task<Response<ResponseActor>> RemoveAsync(string id)
         {
+            var actor = await _actorRepository.GetAsync(id);
+
             await _actorRepository.DeleteAsync(id);
 
-            var actor = _actorRepository.GetAsync(id);
+            var responseActor = _mapper.Map<ResponseActor>(actor);
 
-            var responseDeleteActor = _mapper.Map<ResponseDeleteActor>(actor);
-
-            return Response<ResponseDeleteActor>.Success(200, responseDeleteActor);
+            return Response<ResponseActor>.Success(200, responseActor);
         } 
     }
 }

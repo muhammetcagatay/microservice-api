@@ -10,6 +10,6 @@ namespace Movie.API.Models.Entities
         public string LastName { get; set; }
         public DateTime BirthDayDate { get; set; } = DateTime.Now;
         [BsonRepresentation(BsonType.ObjectId)]
-        public List<string> Films { get; set; }
+        public List<string> FilmsId { get; set; }
     }
 }

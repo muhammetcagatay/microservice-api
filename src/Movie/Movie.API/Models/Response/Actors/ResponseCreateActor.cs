@@ -2,6 +2,6 @@
 {
     public class ResponseCreateActor : ResponseActor
     {
-        public string ActorId { get; set; }
+        public string Id { get; set; }
     }
 }

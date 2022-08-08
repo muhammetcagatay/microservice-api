@@ -10,8 +10,8 @@ namespace Movie.API.Services.Actors
         Task<Response<ResponseGetActor>> GetByIdAsync(string id);
         Task<Response<IEnumerable<ResponseGetActor>>> GetAllAsync();
         Task<Response<ResponseGetActorWithFilms>> GetActorWithFilms(string id);
-        Task<Response<ResponseCreateActor>> CreateAsync(RequestCreateActor requestCreateActor);
-        Task<Response<ResponseUpdateActor>> UpdateAsync(string id, RequestUpdateActor requestUpdateActor);
-        Task<Response<ResponseDeleteActor>> RemoveAsync(string id);
+        Task<Response<ResponseCreateActor>> CreateAsync(RequestActor requestActor);
+        Task<Response<ResponseActor>> UpdateAsync(string id, RequestActor requestActor);
+        Task<Response<ResponseActor>> RemoveAsync(string id);
     }
 }

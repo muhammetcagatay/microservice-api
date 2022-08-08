@@ -2,7 +2,7 @@
 
 namespace Movie.API.Models.Response.Actors
 {
-    public class ResponseGetActorWithFilms : ResponseActor
+    public class ResponseGetActorWithFilms : ResponseFilm
     {
         public List<ResponseGetFilm> Films { get; set; }
     }
