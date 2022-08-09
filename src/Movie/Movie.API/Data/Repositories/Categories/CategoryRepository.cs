@@ -17,9 +17,21 @@ namespace Movie.API.Data.Repositories.Categories
         {
             var category = await _collection.Find(x => x.Id == id).FirstOrDefaultAsync();
 
-            category.FilmsId.Add(film);
+            if (category != null)
+            {
+                category.FilmsId.Add(film);
+                await _collection.ReplaceOneAsync(x => x.Id == id, category);
+            }
+        }
+        public async Task RemoveFilmAsync(string id, string film)
+        {
+            var category = await _collection.Find(x => x.Id == id).FirstOrDefaultAsync();
 
-            await _collection.ReplaceOneAsync(x => x.Id == id, category);
+            if(category!=null)
+            {
+                category.FilmsId.Remove(film);
+                await _collection.ReplaceOneAsync(x => x.Id == id, category);
+            }
         }
     }
 }

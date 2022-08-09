@@ -10,6 +10,6 @@ namespace Movie.API.Models.Response.Films
         public Country Country { get; set; }
         public Language Language { get; set; }
         public int PublicationYear { get; set; }
-        public string CategoryName { get; set; }
+        public string CategoryId { get; set; }
     }
 }

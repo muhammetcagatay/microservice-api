@@ -26,6 +26,11 @@ namespace Movie.API.Services.Actors
 
             var responseGetActor = _mapper.Map<ResponseGetActor>(actor);
 
+            if(responseGetActor==null)
+            {
+                return Response<ResponseGetActor>.Fail("Not Found Actor", 404);
+            }
+
             return Response<ResponseGetActor>.Success(200,responseGetActor);
         }
         public async Task<Response<IEnumerable<ResponseGetActor>>> GetAllAsync()
@@ -40,6 +45,11 @@ namespace Movie.API.Services.Actors
         {
             var actor = await _actorRepository.GetAsync(id);
 
+            if(actor==null)
+            {
+                return Response<ResponseGetActorWithFilms>.Fail("Not Found Actor", 404);
+            }
+
             var responseGetActorWithFilms = _mapper.Map<ResponseGetActorWithFilms>(actor);
 
             var films = new List<ResponseGetFilm>();
@@ -48,7 +58,9 @@ namespace Movie.API.Services.Actors
             {
                 foreach (var item in actor.FilmsId)
                 {
-                    films.Add(_mapper.Map<ResponseGetFilm>(await _filmRepository.GetAsync(item)));
+                    var film = await _filmRepository.GetAsync(item);
+
+                    if(film!=null) films.Add(_mapper.Map<ResponseGetFilm>(film));
                 }
             }
             responseGetActorWithFilms.Films = films;
@@ -69,6 +81,11 @@ namespace Movie.API.Services.Actors
         {
             var actor = await _actorRepository.GetAsync(id);
 
+            if(actor==null)
+            {
+                return Response<ResponseActor>.Fail("Not Found Actor", 404);
+            }
+
             actor.FirstName = requestActor.FirstName;
             actor.LastName = requestActor.LastName;
             actor.BirthDayDate = requestActor.BirthDayDate;
@@ -82,6 +99,11 @@ namespace Movie.API.Services.Actors
         public async Task<Response<ResponseActor>> RemoveAsync(string id)
         {
             var actor = await _actorRepository.GetAsync(id);
+
+            if(actor==null)
+            {
+                return Response<ResponseActor>.Fail("Not Found Actor", 404);
+            }
 
             await _actorRepository.DeleteAsync(id);
 

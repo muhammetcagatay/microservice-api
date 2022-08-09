@@ -30,6 +30,11 @@ namespace Movie.API.Services.Films
 
             var responseGetFilm = _mapper.Map<ResponseGetFilm>(film);
 
+            if(responseGetFilm == null)
+            {
+                return Response<ResponseGetFilm>.Fail("Not Fount Film", 404);
+            }
+
             return Response<ResponseGetFilm>.Success(200, responseGetFilm);
         }
         public async Task<Response<IEnumerable<ResponseGetFilm>>> GetAllAsync()
@@ -94,6 +99,13 @@ namespace Movie.API.Services.Films
         public async Task<Response<ResponseFilm>> RemoveAsync(string id)
         {
             var film = await _filmRepository.GetAsync(id);
+
+            foreach (var item in film.ActorsId)
+            {
+                await _actorRepository.RemoveFilmAsync(item, film.Id);
+            }
+
+            await _categoryRepository.RemoveFilmAsync(film.CategoryId, film.Id);
 
             await _filmRepository.DeleteAsync(id);
 

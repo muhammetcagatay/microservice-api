@@ -7,12 +7,14 @@ namespace Movie.API.Models.Entities
 {
     public class Film : IEntity
     {
+        public Film()
+        {
+            ActorsId = new List<string>();
+        }
         public string Name { get; set; }
         public string Description { get; set; }
         public int Duration { get; set; }
-        [BsonRepresentation(BsonType.Int64)]
         public Country Country { get; set; }
-        [BsonRepresentation(BsonType.Int64)]
         public Language Language { get; set; }
         public int PublicationYear { get; set; }
         [BsonRepresentation(BsonType.ObjectId)]

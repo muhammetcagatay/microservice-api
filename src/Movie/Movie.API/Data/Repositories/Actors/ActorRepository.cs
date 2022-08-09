@@ -16,9 +16,22 @@ namespace Movie.API.Data.Repositories.Actors
         {
             var actor = await _collection.Find(x => x.Id == id).FirstOrDefaultAsync();
 
-            actor.FilmsId.Add(film);
+            if(actor != null)
+            {
+                if (actor != null) actor.FilmsId.Add(film);
+                await _collection.ReplaceOneAsync(x => x.Id == id, actor);
+            }
+        }
 
-            await _collection.ReplaceOneAsync(x => x.Id == id, actor);
+        public async Task RemoveFilmAsync(string id, string film)
+        {
+            var actor = await _collection.Find(x => x.Id == id).FirstOrDefaultAsync();
+
+            if (actor != null)
+            {
+                actor.FilmsId.Remove(film);
+                await _collection.ReplaceOneAsync(x => x.Id == id, actor);
+            }
         }
     }
 }

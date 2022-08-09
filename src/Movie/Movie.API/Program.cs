@@ -5,6 +5,7 @@ using Movie.API.Data.Repositories.Categories;
 using Movie.API.Data.Repositories.Films;
 using Movie.API.Models.Settings;
 using Movie.API.Services.Actors;
+using Movie.API.Services.Categories;
 using Movie.API.Services.Films;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -17,6 +18,7 @@ builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 builder.Services.AddScoped<IFilmRepository, FilmRepository>();
 builder.Services.AddScoped(typeof(IActorService), typeof(ActorService));
 builder.Services.AddScoped(typeof(IFilmService), typeof(FilmService));
+builder.Services.AddScoped(typeof(ICategoryService), typeof(CategoryService));
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 builder.Services.Configure<MongoDbSettings>(builder.Configuration.GetSection("MongoDbSettings"));
@@ -26,9 +28,18 @@ builder.Services.AddSingleton<IMongoDbSettings>(serviceProvider =>
 
 builder.Services.AddSingleton<IMongoDataContext, MongoDataContext>();
 
+//builder.Services.AddSwaggerGen();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
+
+if (app.Environment.IsDevelopment())
+{
+    //app.UseSwagger();
+    //app.UseSwaggerUI();
+}
+
 
 app.UseHttpsRedirection();
 
