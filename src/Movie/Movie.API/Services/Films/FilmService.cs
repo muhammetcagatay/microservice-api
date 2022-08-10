@@ -2,6 +2,7 @@
 using Movie.API.Data.Repositories.Actors;
 using Movie.API.Data.Repositories.Categories;
 using Movie.API.Data.Repositories.Films;
+using Movie.API.Exceptions;
 using Movie.API.Models.Base;
 using Movie.API.Models.Entities;
 using Movie.API.Models.Request.Films;
@@ -32,7 +33,7 @@ namespace Movie.API.Services.Films
 
             if(responseGetFilm == null)
             {
-                return Response<ResponseGetFilm>.Fail("Not Fount Film", 404);
+                throw new NotFoundException("Film not found");
             }
 
             return Response<ResponseGetFilm>.Success(200, responseGetFilm);

@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Movie.API.Data.Repositories.Actors;
 using Movie.API.Data.Repositories.Films;
+using Movie.API.Exceptions;
 using Movie.API.Models.Base;
 using Movie.API.Models.Entities;
 using Movie.API.Models.Request.Actors;
@@ -28,7 +29,7 @@ namespace Movie.API.Services.Actors
 
             if(responseGetActor==null)
             {
-                return Response<ResponseGetActor>.Fail("Not Found Actor", 404);
+                throw new NotFoundException("Actor not found");
             }
 
             return Response<ResponseGetActor>.Success(200,responseGetActor);
@@ -47,7 +48,7 @@ namespace Movie.API.Services.Actors
 
             if(actor==null)
             {
-                return Response<ResponseGetActorWithFilms>.Fail("Not Found Actor", 404);
+                throw new NotFoundException("Actor not found");
             }
 
             var responseGetActorWithFilms = _mapper.Map<ResponseGetActorWithFilms>(actor);
@@ -83,7 +84,7 @@ namespace Movie.API.Services.Actors
 
             if(actor==null)
             {
-                return Response<ResponseActor>.Fail("Not Found Actor", 404);
+                throw new NotFoundException("Actor not found");
             }
 
             actor.FirstName = requestActor.FirstName;
@@ -102,7 +103,7 @@ namespace Movie.API.Services.Actors
 
             if(actor==null)
             {
-                return Response<ResponseActor>.Fail("Not Found Actor", 404);
+                throw new NotFoundException("Actor not found");
             }
 
             await _actorRepository.DeleteAsync(id);

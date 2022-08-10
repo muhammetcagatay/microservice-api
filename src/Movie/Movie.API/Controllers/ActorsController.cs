@@ -9,9 +9,11 @@ namespace Movie.API.Controllers
     public class ActorsController : BaseController
     {
         private readonly IActorService _service;
-        public ActorsController(IActorService service)
+        private readonly ILogger<ActorsController> _logger;
+        public ActorsController(IActorService service, ILogger<ActorsController> logger)
         {
             _service = service;
+            _logger = logger;
         }
         [HttpGet("{id}")]
         public async Task<IActionResult> Get(string id)

@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Movie.API.Data.Repositories.Categories;
 using Movie.API.Data.Repositories.Films;
+using Movie.API.Exceptions;
 using Movie.API.Models.Base;
 using Movie.API.Models.Entities;
 using Movie.API.Models.Request.Categories;
@@ -26,7 +27,7 @@ namespace Movie.API.Services.Categories
 
             if (category == null)
             {
-                return Response<ResponseGetCategory>.Fail("Not Found Category", 404);
+                throw new NotFoundException("Category not found");
             }
 
             var responseGetCategory = _mapper.Map<ResponseGetCategory>(category);
@@ -39,7 +40,7 @@ namespace Movie.API.Services.Categories
 
             if (categories == null)
             {
-                return Response<IEnumerable<ResponseGetCategory>>.Fail("Not Found Category", 404);
+                throw new NotFoundException("Category not found");
             }
 
             var responseGetCategories = _mapper.Map<IEnumerable<ResponseGetCategory>>(categories);
@@ -52,7 +53,7 @@ namespace Movie.API.Services.Categories
 
             if (category == null)
             {
-                return Response<ResponseGetCategoryWithFilms>.Fail("Not Found Category", 404);
+                throw new NotFoundException("Category not found");
             }
 
             var responseGetCategoryWithFilms = _mapper.Map<ResponseGetCategoryWithFilms>(category);
@@ -91,7 +92,7 @@ namespace Movie.API.Services.Categories
 
             if (category == null)
             {
-                return Response<ResponseCategory>.Fail("Not Found Category", 404);
+                throw new NotFoundException("Category not found");
             }
 
             category.Id = id;
@@ -108,7 +109,7 @@ namespace Movie.API.Services.Categories
 
             if (responseCategory == null)
             {
-                return Response<ResponseCategory>.Fail("Not Found Category", 404);
+                throw new NotFoundException("Category not found");
             }
 
             await _categoryRepository.DeleteAsync(id);

@@ -1,14 +1,20 @@
+using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Movie.API.Data;
 using Movie.API.Data.Repositories.Actors;
 using Movie.API.Data.Repositories.Categories;
 using Movie.API.Data.Repositories.Films;
+using Movie.API.Logging;
+using Movie.API.Middlewares;
 using Movie.API.Models.Settings;
 using Movie.API.Services.Actors;
 using Movie.API.Services.Categories;
 using Movie.API.Services.Films;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
+
+
 
 // Add services to the container.
 builder.Services.AddControllers();
@@ -28,20 +34,38 @@ builder.Services.AddSingleton<IMongoDbSettings>(serviceProvider =>
 
 builder.Services.AddSingleton<IMongoDataContext, MongoDataContext>();
 
-//builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen();
+
+
+
+builder.Services.AddLogging(config =>
+{
+    config.ClearProviders();
+    config.SetMinimumLevel(LogLevel.Information);
+    config.AddProvider(new CustomLoggerFactory("Logs/log.txt"));
+});
+
+//builder.Host.UseSerilog();
+
+//Log.Logger = new LoggerConfiguration().ReadFrom.Configuration(builder.Configuration).CreateLogger();
 
 var app = builder.Build();
+
+
 
 // Configure the HTTP request pipeline.
 
 if (app.Environment.IsDevelopment())
 {
-    //app.UseSwagger();
-    //app.UseSwaggerUI();
+    app.UseSwagger();
+    app.UseSwaggerUI();
 }
 
-
 app.UseHttpsRedirection();
+
+//app.UseMiddleware<RequestResponseMiddleware>();
+
+app.UseMiddleware<ExceptionHandlerMiddleware>();
 
 app.UseAuthorization();
 
