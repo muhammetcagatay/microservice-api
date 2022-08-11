@@ -1,13 +1,11 @@
-<div id="top"></div>
 
-<!-- PROJECT SHIELDS -->
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
-
+<div align="center">
+  
+[![Docker](https://img.shields.io/badge/Docker-available-green.svg?style=flat&logo=docker)](https://github.com/muhammetcagatay/microservice-api/master/README.md#electric_plug-installation)
+[![GitHub](https://img.shields.io/github/license/emalderson/ThePhish)](https://github.com/emalderson/ThePhish/blob/master/LICENSE)
+[![Documentation](https://img.shields.io/badge/Documentation-complete-green.svg?style=flat)](https://github.com/muhammetcagatay/microservice-api)
+  
+</div>
 
 
 <!-- PROJECT LOGO -->
@@ -51,7 +49,7 @@
         <li><a href="#nut_and_bolt-database-design">Database Design</a></li>
       </ul>
     </li>
-    <li><a href="#contact">Contact</a></li>
+    <li><a href="#zap-endpoints">Endpoints</a></li>
   </ol>
 </details>
 
@@ -73,10 +71,6 @@ Of course, no one template will serve all projects since your needs may be diffe
 
 Use the `BLANK_README.md` to get started.
 
-<p align="right">(<a href="#top">Back To Top</a>)</p>
-
-
-
 ## :hammer: Built With
 
 This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
@@ -89,8 +83,6 @@ This section should list any major frameworks/libraries used to bootstrap your p
 * [Laravel](https://laravel.com)
 * [Bootstrap](https://getbootstrap.com)
 * [JQuery](https://jquery.com)
-
-<p align="right">(<a href="#top">Back To Top</a>)</p>
 
 
 ## :electric_plug: Installation
@@ -108,8 +100,6 @@ This section should list any major frameworks/libraries used to bootstrap your p
    ```js
    const API_KEY = 'ENTER YOUR API';
    ```
-
-<p align="right">(<a href="#top">Back To Top</a>)</p>
 
 
 <!-- GETTING STARTED -->
@@ -163,8 +153,14 @@ _Below is an example of how you can instruct your audience on installing and set
    const API_KEY = 'ENTER YOUR API';
    ```
 
-<p align="right">(<a href="#top">Back To Top</a>)</p>
 
+<!-- Endpoints -->
+## :earth_americas: Endpoints
+Now that we’ve learned about the anatomy of our endpoints and the different request methods that we should use, it’s time for some examples:
+
+| Method | URL | Description |
+| --- | --- | --- |
+| `GET` | `api/actors` | `List of all actors` |
 
 
 <!-- USAGE EXAMPLES -->
@@ -174,7 +170,6 @@ Use this space to show useful examples of how a project can be used. Additional 
 
 _For more examples, please refer to the [Documentation](https://example.com)_
 
-<p align="right">(<a href="#top">Back To Top</a>)</p>
 
 
 
@@ -190,24 +185,6 @@ _For more examples, please refer to the [Documentation](https://example.com)_
     - [ ] Spanish
 
 See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a full list of proposed features (and known issues).
-
-<p align="right">(<a href="#top">Back To Top</a>)</p>
-
-
-<!-- CONTACT -->
-## :question: Contact
-
-Muhammet Çağatay - muhammetcagatayy@gmail.com
-
-Project Link: [Repository](https://github.com/muhammetcagatay/VivaceAPI)
-
-<p align="right">(<a href="#top">Back To Top</a>)</p>
-
-
-
-
-
-
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
