@@ -1,7 +1,7 @@
 
 <div align="center">
   
-[![Docker](https://img.shields.io/badge/Docker-available-green.svg?style=flat&logo=docker)](https://github.com/muhammetcagatay/microservice-api/master/README.md#electric_plug-installation)
+[![Docker](https://img.shields.io/badge/Docker-available-green.svg?style=flat&logo=docker)](https://github.com/muhammetcagatay/microservice-api#electric_plug-installation)
 [![GitHub](https://img.shields.io/github/license/emalderson/ThePhish)](https://github.com/emalderson/ThePhish/blob/master/LICENSE)
 [![Documentation](https://img.shields.io/badge/Documentation-complete-green.svg?style=flat)](https://github.com/muhammetcagatay/microservice-api)
   
@@ -49,7 +49,9 @@
         <li><a href="#nut_and_bolt-database-design">Database Design</a></li>
       </ul>
     </li>
-    <li><a href="#zap-endpoints">Endpoints</a></li>
+    <li><a href="#-features">Features</a></li>
+    <li><a href="#earth_americas-endpoints">Endpoints</a></li>
+    
   </ol>
 </details>
 
@@ -152,6 +154,20 @@ _Below is an example of how you can instruct your audience on installing and set
    ```js
    const API_KEY = 'ENTER YOUR API';
    ```
+## 🎯 Features
+-   Robust [routing](https://docs.gofiber.io/routing)
+-   Serve [static files](https://docs.gofiber.io/api/app#static)
+-   Extreme [performance](https://docs.gofiber.io/extra/benchmarks)
+-   [Low memory](https://docs.gofiber.io/extra/benchmarks) footprint
+-   [API endpoints](https://docs.gofiber.io/api/ctx)
+-   [Middleware](https://docs.gofiber.io/middleware) & [Next](https://docs.gofiber.io/api/ctx#next) support
+-   [Rapid](https://dev.to/koddr/welcome-to-fiber-an-express-js-styled-fastest-web-framework-written-with-on-golang-497) server-side programming
+-   [Template engines](https://github.com/gofiber/template)
+-   [WebSocket support](https://github.com/gofiber/websocket)
+-   [Server-Sent events](https://github.com/gofiber/recipes/tree/master/sse)
+-   [Rate Limiter](https://docs.gofiber.io/api/middleware/limiter)
+-   Translated in [15 languages](https://docs.gofiber.io/)
+-   And much more, [explore Fiber](https://docs.gofiber.io/)
 
 
 <!-- Endpoints -->
