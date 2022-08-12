@@ -23,9 +23,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Middlewares\" />
-    <Folder Include="Filters\" />
     <Folder Include="Logging\" />
+    <Folder Include="Exceptions\" />
+    <Folder Include="Middlewares\" />
   </ItemGroup>
 
 </Project>

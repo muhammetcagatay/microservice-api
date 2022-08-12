@@ -10,18 +10,18 @@ namespace Book.API.Services.BookEntities
 {
     public class BookService : IBookService
     {
-        private readonly IUnitOfWork<BookEntity> _unitOfWork;
+        private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
-        public BookService(IMapper mapper, IUnitOfWork<BookEntity> unitOfWork)
+        public BookService(IMapper mapper, IUnitOfWork unitOfWork)
         {
             _mapper = mapper;
             _unitOfWork = unitOfWork;
         }
         public async Task<Response<BookResponse>> GetByIdAsync(int id)
         {
-            var bookRepository = _unitOfWork.GetRepository();
+            var bookRepository = _unitOfWork.GetRepository<BookEntity>();
 
-            var book = await bookRepository.Where(x => x.Id == id).Where(x => !x.IsDelete).SingleAsync();
+            var book = await bookRepository.Where(x => x.Id == id).Where(x => !x.IsDelete).FirstOrDefaultAsync();
 
             var bookResponse = _mapper.Map<BookResponse>(book);
 
@@ -29,7 +29,7 @@ namespace Book.API.Services.BookEntities
         }
         public async Task<Response<IEnumerable<BookResponse>>> GetAllAsync()
         {
-            var bookRepository = _unitOfWork.GetRepository();
+            var bookRepository = _unitOfWork.GetRepository<BookEntity>();
 
             var books = await bookRepository.Where(x => !x.IsDelete).ToListAsync();
 
@@ -48,9 +48,9 @@ namespace Book.API.Services.BookEntities
         }
         public async Task<Response<NoContent>> UpdateAsync(int id, BookRequest request)
         {
-            var bookRepository = _unitOfWork.GetRepository();
+            var bookRepository = _unitOfWork.GetRepository<BookEntity>();
 
-            var book = await bookRepository.Where(x => x.Id == id).Where(x => !x.IsDelete).SingleAsync();
+            var book = await bookRepository.Where(x => x.Id == id).Where(x => !x.IsDelete).FirstOrDefaultAsync();
 
             book.Title = request.Title;
             book.Description = request.Description;
@@ -65,9 +65,9 @@ namespace Book.API.Services.BookEntities
         }
         public async Task<Response<NoContent>> DeleteAsync(int id)
         {
-            var bookRepository = _unitOfWork.GetRepository();
+            var bookRepository = _unitOfWork.GetRepository<BookEntity>();
 
-            var book = await bookRepository.Where(x => x.Id == id).Where(x => !x.IsDelete).SingleAsync();
+            var book = await bookRepository.Where(x => x.Id == id).Where(x => !x.IsDelete).FirstOrDefaultAsync();
 
             book.IsDelete = true;
 

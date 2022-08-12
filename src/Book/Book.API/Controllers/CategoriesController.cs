@@ -1,4 +1,6 @@
-﻿using Book.API.Models.Request.Categories;
+﻿using Book.API.Filters;
+using Book.API.Models.Entities;
+using Book.API.Models.Request.Categories;
 using Book.API.Services.Categories;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -7,6 +9,7 @@ namespace Book.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [ServiceFilter(typeof(NotFoundFilter<Category>))]
     public class CategoriesController : CustomController
     {
         private readonly ICategoryService _service;

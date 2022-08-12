@@ -2,7 +2,7 @@
 
 namespace Book.API.Data.UnitOfWorks
 {
-    public class UnitOfWork<T> : IUnitOfWork<T> where T : IEntity
+    public class UnitOfWork : IUnitOfWork
     {
         private readonly BookDataContext _context;
 
@@ -10,19 +10,19 @@ namespace Book.API.Data.UnitOfWorks
         {
             _context = context;
         }
-        public IQueryable<T> GetRepository()
+        public IQueryable<T> GetRepository<T>() where T : IEntity
         {
             return _context.Set<T>().AsQueryable();
         }
-        public async Task AddAsync(T entity)
+        public async Task AddAsync<T>(T entity) where T : IEntity
         {
             await _context.Set<T>().AddAsync(entity);
         }
-        public void Update(T entity)
+        public void Update<T>(T entity) where T : IEntity
         {
             _context.Set<T>().Update(entity);
         }
-        public void Remove(T entity)
+        public void Remove<T>(T entity) where T : IEntity
         {
             _context.Set<T>().Remove(entity);
         }

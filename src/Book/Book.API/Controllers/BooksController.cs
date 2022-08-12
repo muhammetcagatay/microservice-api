@@ -1,4 +1,6 @@
-﻿using Book.API.Models.Request.Books;
+﻿using Book.API.Filters;
+using Book.API.Models.Entities;
+using Book.API.Models.Request.Books;
 using Book.API.Services.BookEntities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -7,6 +9,7 @@ namespace Book.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [ServiceFilter(typeof(NotFoundFilter<BookEntity>))]
     public class BooksController : CustomController
     {
         private readonly IBookService _service;

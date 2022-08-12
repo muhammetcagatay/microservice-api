@@ -1,4 +1,6 @@
 ﻿using Book.API.Data;
+using Book.API.Filters;
+using Book.API.Models.Entities;
 using Book.API.Models.Request.Authors;
 using Book.API.Services.Authors;
 using Microsoft.AspNetCore.Http;
@@ -8,6 +10,7 @@ namespace Book.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [ServiceFilter(typeof(NotFoundFilter<Author>))]
     public class AuthorsController : CustomController
     {
         private readonly IAuthorService _service;
@@ -15,6 +18,7 @@ namespace Book.API.Controllers
         {
             _service = service;
         }
+        
         [HttpGet("{id}")]
         public async Task<IActionResult> Get(int id)
         {

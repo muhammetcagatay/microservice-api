@@ -10,18 +10,18 @@ namespace Book.API.Services.Categories
 {
     public class CategoryService : ICategoryService
     {
-        private readonly IUnitOfWork<Category> _unitOfWork;
+        private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
-        public CategoryService(IUnitOfWork<Category> unitOfWork, IMapper mapper)
+        public CategoryService(IUnitOfWork unitOfWork, IMapper mapper)
         {
             _unitOfWork = unitOfWork;
             _mapper = mapper;
         }
         public async Task<Response<CategoryResponse>> GetByIdAsync(int id)
         {
-            var categoryRepository = _unitOfWork.GetRepository();
+            var categoryRepository = _unitOfWork.GetRepository<Category>();
 
-            var category = await categoryRepository.Where(x => x.Id == id).Where(x => !x.IsDelete).SingleAsync();
+            var category = await categoryRepository.Where(x => x.Id == id).Where(x => !x.IsDelete).FirstOrDefaultAsync();
 
             var categoryResponse = _mapper.Map<CategoryResponse>(category);
 
@@ -29,7 +29,7 @@ namespace Book.API.Services.Categories
         }
         public async Task<Response<IEnumerable<CategoryResponse>>> GetAllAsync()
         {
-            var categoryRepository = _unitOfWork.GetRepository();
+            var categoryRepository = _unitOfWork.GetRepository<Category>();
 
             var categories = await categoryRepository.Where(x => !x.IsDelete).ToListAsync();
 
@@ -39,9 +39,9 @@ namespace Book.API.Services.Categories
         }
         public async Task<Response<CategoryWithBooksResponse>> GetCategoryWithBooksAsync(int id)
         {
-            var categoryRepository = _unitOfWork.GetRepository();
+            var categoryRepository = _unitOfWork.GetRepository<Category>();
 
-            var category = await categoryRepository.Include(x => x.Books).Where(x => x.Id == id).Where(x => !x.IsDelete).SingleAsync();
+            var category = await categoryRepository.Include(x => x.Books).Where(x => x.Id == id).Where(x => !x.IsDelete).FirstOrDefaultAsync();
 
             var categoryResponse = _mapper.Map<CategoryWithBooksResponse>(category);
 
@@ -58,9 +58,9 @@ namespace Book.API.Services.Categories
         }
         public async Task<Response<NoContent>> UpdateAsync(int id, CategoryRequest request)
         {
-            var categoryRepository = _unitOfWork.GetRepository();
+            var categoryRepository = _unitOfWork.GetRepository<Category>();
 
-            var category = await categoryRepository.Where(x => x.Id == id).Where(x => !x.IsDelete).SingleAsync();
+            var category = await categoryRepository.Where(x => x.Id == id).Where(x => !x.IsDelete).FirstOrDefaultAsync();
 
             category.Name = request.Name;
 
@@ -71,9 +71,9 @@ namespace Book.API.Services.Categories
         }
         public async Task<Response<NoContent>> DeleteAsync(int id)
         {
-            var categoryRepository = _unitOfWork.GetRepository();
+            var categoryRepository = _unitOfWork.GetRepository<Category>();
 
-            var category = await categoryRepository.Where(x => x.Id == id).Where(x => !x.IsDelete).SingleAsync();
+            var category = await categoryRepository.Where(x => x.Id == id).Where(x => !x.IsDelete).FirstOrDefaultAsync();
 
             category.IsDelete = true;
 

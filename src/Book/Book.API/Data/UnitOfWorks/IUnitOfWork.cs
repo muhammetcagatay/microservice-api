@@ -2,14 +2,13 @@
 
 namespace Book.API.Data.UnitOfWorks
 {
-    public interface IUnitOfWork<T> where T : IEntity
+    public interface IUnitOfWork
     {
-        IQueryable<T> GetRepository();
-        Task AddAsync(T entity);
-        void Update(T entity);
-        void Remove(T entity);
+        IQueryable<T> GetRepository<T>() where T : IEntity;
+        Task AddAsync<T>(T entity) where T : IEntity;
+        void Update<T>(T entity)where T : IEntity;
+        void Remove<T>(T entity)where T : IEntity;
         void SaveChanges();
         Task SaveChangesAsync();
-
     }
 }

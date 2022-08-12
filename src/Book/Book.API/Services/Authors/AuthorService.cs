@@ -11,17 +11,18 @@ namespace Book.API.Services.Authors
     public class AuthorService : IAuthorService
     {
         private readonly IMapper _mapper;
-        private readonly IUnitOfWork<Author> _unitOWork;
-        public AuthorService(IUnitOfWork<Author> unitOWork, IMapper mapper)
+        private readonly IUnitOfWork _unitOWork;
+        public AuthorService(IUnitOfWork unitOWork, IMapper mapper)
         {
             _unitOWork = unitOWork;
             _mapper = mapper;
         }
         public async Task<Response<AuthorResponse>> GetByIdAsync(int id)
         {
-            var authorRepository = _unitOWork.GetRepository();
+            var authorRepository = _unitOWork.GetRepository<Author>();
+            var bookRepository = _unitOWork.GetRepository<BookEntity>();
 
-            var author = await authorRepository.Where(x => x.Id == id).Where(x => !x.IsDelete).SingleAsync();
+            var author = await authorRepository.Where(x => x.Id == id).Where(x => !x.IsDelete).FirstOrDefaultAsync();
 
             var authorResponse = _mapper.Map<AuthorResponse>(author);
 
@@ -29,7 +30,7 @@ namespace Book.API.Services.Authors
         }
         public async Task<Response<IEnumerable<Author>>> GetAllAsync()
         {
-            var authorRepository = _unitOWork.GetRepository();
+            var authorRepository = _unitOWork.GetRepository<Author>();
 
             var authors = await authorRepository.Where(x=> !x.IsDelete).ToListAsync();
 
@@ -37,13 +38,13 @@ namespace Book.API.Services.Authors
         }
         public async Task<Response<AuthorWithBooksResponse>> GetAuthorWithBooksAsync(int id)
         {
-            var authorRepository = _unitOWork.GetRepository();
+            var authorRepository = _unitOWork.GetRepository<Author>();
 
             var author = await authorRepository
                 .Include(x=>x.Books)
                 .Where(x => x.Id == id)
                 .Where(x => !x.IsDelete)
-                .SingleAsync();
+                .FirstOrDefaultAsync();
 
             var authorWithBooksResponse = _mapper.Map<AuthorWithBooksResponse>(author);
 
@@ -58,9 +59,9 @@ namespace Book.API.Services.Authors
         }
         public async Task<Response<NoContent>> UpdateAsync(int id, AuthorRequest request)
         {
-            var authorRepository = _unitOWork.GetRepository();
+            var authorRepository = _unitOWork.GetRepository<Author>();
 
-            var author = await authorRepository.Where(x => x.Id == id).Where(x => !x.IsDelete).SingleAsync();
+            var author = await authorRepository.Where(x => x.Id == id).Where(x => !x.IsDelete).FirstOrDefaultAsync();
 
             author.FirstName = request.FirstName;
             author.LastName = request.LastName;
@@ -73,9 +74,9 @@ namespace Book.API.Services.Authors
         }
         public async Task<Response<NoContent>> DeleteAsync(int id)
         {
-            var authorRepository = _unitOWork.GetRepository();
+            var authorRepository = _unitOWork.GetRepository<Author>();
 
-            var author = await authorRepository.Where(x => x.Id == id).Where(x => !x.IsDelete).SingleAsync();
+            var author = await authorRepository.Where(x => x.Id == id).Where(x => !x.IsDelete).FirstOrDefaultAsync();
 
             author.IsDelete = true;
 
