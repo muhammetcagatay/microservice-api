@@ -75,16 +75,15 @@ Use the `BLANK_README.md` to get started.
 
 ## :hammer: Built With
 
-This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
+You can take a look at the programming languages, frameworks, databases and other tools I used while developing the project below.
 
-* [Next.js](https://nextjs.org/)
-* [React.js](https://reactjs.org/)
-* [Vue.js](https://vuejs.org/)
-* [Angular](https://angular.io/)
-* [Svelte](https://svelte.dev/)
-* [Laravel](https://laravel.com)
-* [Bootstrap](https://getbootstrap.com)
-* [JQuery](https://jquery.com)
+* [.Net Core](https://nextjs.org/)
+* [Docker](https://reactjs.org/)
+* [MongoDB](https://vuejs.org/)
+* [PostgreSQL](https://angular.io/)
+* [Postman](https://svelte.dev/)
+* [DBeaver](https://laravel.com)
+* [Entity Framework Core](https://getbootstrap.com)
 
 
 ## :electric_plug: Installation
@@ -115,23 +114,15 @@ To get a local copy up and running follow these simple example steps.
 Add a file structure here with the basic details about files, below is an example.
 
 ```
-.
-├── assets
-│   ├── css
-│   │   ├── index-ui.css
-│   │   └── rate-ui.css
-│   ├── images
-│   │   ├── icons
-│   │   │   ├── shrink-button.png
-│   │   │   └── umbrella.png
-│   │   ├── logo_144.png
-│   │   └── Untitled-1.psd
-│   └── javascript
-│       ├── index.js
-│       └── rate.js
-├── CNAME
-├── index.html
-├── rate.html
+├── src
+│   ├── Movie
+│   │   ├── Movie.API
+│   │   └── Movie.sln
+│   ├── Book
+│   │   ├── Book.API
+│   │   └── Book.sln
+├── .gitattributes
+├── .gitignore
 └── README.md
 ```
 
@@ -155,29 +146,33 @@ _Below is an example of how you can instruct your audience on installing and set
    const API_KEY = 'ENTER YOUR API';
    ```
 ## 🎯 Features
--   Robust [routing](https://docs.gofiber.io/routing)
--   Serve [static files](https://docs.gofiber.io/api/app#static)
--   Extreme [performance](https://docs.gofiber.io/extra/benchmarks)
--   [Low memory](https://docs.gofiber.io/extra/benchmarks) footprint
--   [API endpoints](https://docs.gofiber.io/api/ctx)
--   [Middleware](https://docs.gofiber.io/middleware) & [Next](https://docs.gofiber.io/api/ctx#next) support
--   [Rapid](https://dev.to/koddr/welcome-to-fiber-an-express-js-styled-fastest-web-framework-written-with-on-golang-497) server-side programming
--   [Template engines](https://github.com/gofiber/template)
--   [WebSocket support](https://github.com/gofiber/websocket)
--   [Server-Sent events](https://github.com/gofiber/recipes/tree/master/sse)
--   [Rate Limiter](https://docs.gofiber.io/api/middleware/limiter)
--   Translated in [15 languages](https://docs.gofiber.io/)
--   And much more, [explore Fiber](https://docs.gofiber.io/)
-
+-   [Microservices Architecture](https://github.com/muhammetcagatay/microservice-api/tree/master/src)
+-   [Rest API](https://github.com/muhammetcagatay/microservice-api/tree/master/src/Movie/Movie.API)
+-   [Logging](https://github.com/muhammetcagatay/microservice-api/blob/master/src/Movie/Movie.API/Logging/CustomLoggerFactory.cs)
+-   [Middlewares](https://github.com/muhammetcagatay/microservice-api/tree/master/src/Movie/Movie.API/Middlewares)
+-   [Filters](https://github.com/muhammetcagatay/microservice-api/blob/master/src/Book/Book.API/Filters/NotFoundFilter.cs)
+-   [API Gateway](www.empty.com)
+-   [Repository Pattern](https://github.com/muhammetcagatay/microservice-api/tree/master/src/Movie/Movie.API/Data)
+-   [AutoMapper](https://github.com/muhammetcagatay/microservice-api/tree/master/src/Book/Book.API/Mapper)
+-   [Options Pattern](https://github.com/muhammetcagatay/microservice-api/tree/master/src/Movie/Movie.API/Models/Settings)
+-   [Swagger Integration](https://github.com/muhammetcagatay/microservice-api/blob/master/src/Book/Book.API/Program.cs)
+-   [UnitOfWork Pattern](https://github.com/muhammetcagatay/microservice-api/tree/master/src/Book/Book.API/Data/UnitOfWorks)
 
 <!-- Endpoints -->
 ## :earth_americas: Endpoints
 Now that we’ve learned about the anatomy of our endpoints and the different request methods that we should use, it’s time for some examples:
 
+### Book Service
+
 | Method | URL | Description |
 | --- | --- | --- |
 | `GET` | `api/actors` | `List of all actors` |
 
+### Movie Service
+
+| Method | URL | Description |
+| --- | --- | --- |
+| `GET` | `api/actors` | `List of all actors` |
 
 <!-- USAGE EXAMPLES -->
 ## :zap: Usage
@@ -192,10 +187,10 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 <!-- ROADMAP -->
 ## :rocket: Roadmap
 
-- [x] Add Changelog
-- [x] Add back to top links
-- [ ] Add Additional Templates w/ Examples
-- [ ] Add "components" document to easily copy & paste sections of the readme
+- [x] Develop Book service
+- [x] Develop Movie service
+- [ ] Develop API Gateway
+- [ ] Dockerize the project
 - [ ] Multi-language Support
     - [ ] Chinese
     - [ ] Spanish
