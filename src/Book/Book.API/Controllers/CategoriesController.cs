@@ -1,6 +1,5 @@
-﻿using Book.API.Data;
-using Book.API.Models.Request.Authors;
-using Book.API.Services.Authors;
+﻿using Book.API.Models.Request.Categories;
+using Book.API.Services.Categories;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -8,10 +7,10 @@ namespace Book.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class AuthorsController : CustomController
+    public class CategoriesController : CustomController
     {
-        private readonly IAuthorService _service;
-        public AuthorsController(IAuthorService service)
+        private readonly ICategoryService _service;
+        public CategoriesController(ICategoryService service)
         {
             _service = service;
         }
@@ -28,15 +27,15 @@ namespace Book.API.Controllers
         [HttpGet("getwithbooks/{id}")]
         public async Task<IActionResult> GetWithBooks(int id)
         {
-            return CreateResult(await _service.GetAuthorWithBooksAsync(id));
+            return CreateResult(await _service.GetCategoryWithBooksAsync(id));
         }
         [HttpPost]
-        public async Task<IActionResult> Create(AuthorRequest request)
+        public async Task<IActionResult> Create(CategoryRequest request)
         {
             return CreateResult(await _service.CreateAsync(request));
         }
         [HttpPut("{id}")]
-        public async Task<IActionResult> Update(int id,AuthorRequest request)
+        public async Task<IActionResult> Update(int id, CategoryRequest request)
         {
             return CreateResult(await _service.UpdateAsync(id, request));
         }

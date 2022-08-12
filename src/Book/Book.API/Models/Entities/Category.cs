@@ -11,6 +11,7 @@ namespace Book.API.Models.Entities
         {
             Books = new HashSet<BookEntity>();
         }
+        [Column("name")]
         public string Name { get; set; }
         public ICollection<BookEntity> Books { get; set; }
 

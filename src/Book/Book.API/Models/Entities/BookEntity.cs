@@ -13,8 +13,6 @@ namespace Book.API.Models.Entities
         public string Description { get; set; }
         [Column("printlenght")]
         public int PrintLenght { get; set; }
-        [Column("publicationdate")]
-        public DateTime PublicationDate { get; set; }
         [Column("categoryid")]
         public int CategoryId { get; set; }
         [Column("authorid")]
