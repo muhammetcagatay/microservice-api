@@ -3,12 +3,12 @@ using Ocelot.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Configuration.AddJsonFile("configuration.devolopment.json").AddEnvironmentVariables();
-
-builder.Services.AddOcelot();
+builder.Configuration.SetBasePath(Path.GetDirectoryName(System.AppContext.BaseDirectory))
+        .AddJsonFile("appsettings.Production.json");
+builder.Services.AddOcelot(builder.Configuration);
 
 var app = builder.Build();
 
-await app.UseOcelot();
+app.UseOcelot().Wait();
 
 app.Run();
