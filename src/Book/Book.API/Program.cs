@@ -1,6 +1,7 @@
 using Book.API.Data;
 using Book.API.Data.UnitOfWorks;
 using Book.API.Filters;
+using Book.API.Middlewares;
 using Book.API.Services.Authors;
 using Book.API.Services.BookEntities;
 using Book.API.Services.Categories;
@@ -33,8 +34,10 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
 app.UseHttpsRedirection();
+
+app.UseMiddleware<ExceptionHandlerMiddleware>();
+app.UseMiddleware<LoggingMiddleware>();
 
 app.UseAuthorization();
 
