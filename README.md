@@ -40,6 +40,7 @@
   <summary>Table of Contents</summary>
   <ol>
     <li><a href="#beginner-about-the-project">About The Project</a></li>
+    <li><a href="#-features">Features</a></li>
     <li><a href="#hammer-built-with">Built With</a></li>
     <li><a href="#electric_plug-installation">Installation</a></li>
     <li>
@@ -49,7 +50,6 @@
         <li><a href="#nut_and_bolt-database-design">Database Design</a></li>
       </ul>
     </li>
-    <li><a href="#-features">Features</a></li>
     <li><a href="#earth_americas-endpoints">Endpoints</a></li>
     
   </ol>
@@ -73,6 +73,19 @@ Of course, no one template will serve all projects since your needs may be diffe
 
 Use the `BLANK_README.md` to get started.
 
+## 🎯 Features
+-   [Microservices Architecture](https://github.com/muhammetcagatay/microservice-api/tree/master/src)
+-   [Rest API](https://github.com/muhammetcagatay/microservice-api/tree/master/src/Movie/Movie.API)
+-   [Logging](https://github.com/muhammetcagatay/microservice-api/blob/master/src/Movie/Movie.API/Logging/CustomLoggerFactory.cs)
+-   [Middlewares](https://github.com/muhammetcagatay/microservice-api/tree/master/src/Movie/Movie.API/Middlewares)
+-   [Filters](https://github.com/muhammetcagatay/microservice-api/blob/master/src/Book/Book.API/Filters/NotFoundFilter.cs)
+-   [API Gateway](www.empty.com)
+-   [Repository Pattern](https://github.com/muhammetcagatay/microservice-api/tree/master/src/Movie/Movie.API/Data)
+-   [AutoMapper](https://github.com/muhammetcagatay/microservice-api/tree/master/src/Book/Book.API/Mapper)
+-   [Options Pattern](https://github.com/muhammetcagatay/microservice-api/tree/master/src/Movie/Movie.API/Models/Settings)
+-   [Swagger Integration](https://github.com/muhammetcagatay/microservice-api/blob/master/src/Book/Book.API/Program.cs)
+-   [UnitOfWork Pattern](https://github.com/muhammetcagatay/microservice-api/tree/master/src/Book/Book.API/Data/UnitOfWorks)
+
 ## :hammer: Built With
 
 You can take a look at the programming languages, frameworks, databases and other tools I used while developing the project below.
@@ -83,7 +96,8 @@ You can take a look at the programming languages, frameworks, databases and othe
 * [PostgreSQL](https://angular.io/)
 * [Postman](https://svelte.dev/)
 * [DBeaver](https://laravel.com)
-* [Entity Framework Core](https://getbootstrap.com)
+* [EF Core](https://getbootstrap.com)
+* [Ocelot](https://getbootstrap.com)
 
 
 ## :electric_plug: Installation
@@ -145,19 +159,6 @@ _Below is an example of how you can instruct your audience on installing and set
    ```js
    const API_KEY = 'ENTER YOUR API';
    ```
-## 🎯 Features
--   [Microservices Architecture](https://github.com/muhammetcagatay/microservice-api/tree/master/src)
--   [Rest API](https://github.com/muhammetcagatay/microservice-api/tree/master/src/Movie/Movie.API)
--   [Logging](https://github.com/muhammetcagatay/microservice-api/blob/master/src/Movie/Movie.API/Logging/CustomLoggerFactory.cs)
--   [Middlewares](https://github.com/muhammetcagatay/microservice-api/tree/master/src/Movie/Movie.API/Middlewares)
--   [Filters](https://github.com/muhammetcagatay/microservice-api/blob/master/src/Book/Book.API/Filters/NotFoundFilter.cs)
--   [API Gateway](www.empty.com)
--   [Repository Pattern](https://github.com/muhammetcagatay/microservice-api/tree/master/src/Movie/Movie.API/Data)
--   [AutoMapper](https://github.com/muhammetcagatay/microservice-api/tree/master/src/Book/Book.API/Mapper)
--   [Options Pattern](https://github.com/muhammetcagatay/microservice-api/tree/master/src/Movie/Movie.API/Models/Settings)
--   [Swagger Integration](https://github.com/muhammetcagatay/microservice-api/blob/master/src/Book/Book.API/Program.cs)
--   [UnitOfWork Pattern](https://github.com/muhammetcagatay/microservice-api/tree/master/src/Book/Book.API/Data/UnitOfWorks)
-
 <!-- Endpoints -->
 ## :earth_americas: Endpoints
 Now that we’ve learned about the anatomy of our endpoints and the different request methods that we should use, it’s time for some examples:
