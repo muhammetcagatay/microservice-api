@@ -102,18 +102,17 @@ You can take a look at the programming languages, frameworks, databases and othe
 
 ## :electric_plug: Installation
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
+1. Clone the repo
    ```sh
-   git clone https://github.com/your_username_/Project-Name.git
+   git clone https://github.com/muhammetcagatay/microservice-api.git
    ```
-3. Install NPM packages
+2. Go to project folder
    ```sh
-   npm install
+   cd microservice-api
    ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
+3. Docker compose
+   ```sh
+   docker-compose up
    ```
 
 
