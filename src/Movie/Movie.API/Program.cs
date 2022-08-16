@@ -36,18 +36,9 @@ builder.Services.AddSingleton<IMongoDataContext, MongoDataContext>();
 
 builder.Services.AddSwaggerGen();
 
+builder.Host.UseSerilog();
 
-
-builder.Services.AddLogging(config =>
-{
-    config.ClearProviders();
-    config.SetMinimumLevel(LogLevel.Information);
-    config.AddProvider(new CustomLoggerFactory("Logs/log.txt"));
-});
-
-//builder.Host.UseSerilog();
-
-//Log.Logger = new LoggerConfiguration().ReadFrom.Configuration(builder.Configuration).CreateLogger();
+Log.Logger = new LoggerConfiguration().ReadFrom.Configuration(builder.Configuration).CreateLogger();
 
 var app = builder.Build();
 
@@ -55,11 +46,10 @@ var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+
+app.UseSwagger();
+app.UseSwaggerUI();
+
 
 app.UseHttpsRedirection();
 

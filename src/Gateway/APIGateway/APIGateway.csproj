@@ -5,19 +5,9 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
-
-  <ItemGroup>
-    <Content Remove="appsettings.production.json" />
-    <Content Remove="configuration.devolopment.json" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="appsettings.Production.json" />
-    <None Include="configuration.devolopment.json" />
-  </ItemGroup>
-
   <ItemGroup>
     <PackageReference Include="Ocelot" Version="18.0.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>
 
 </Project>

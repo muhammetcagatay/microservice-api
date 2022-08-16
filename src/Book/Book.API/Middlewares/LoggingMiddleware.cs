@@ -20,13 +20,12 @@
                     $" Method:{httpContext.Request.Method} ," +
                     $" Status Code:{httpContext.Response.StatusCode}";
 
-            var path = "Logs/log.txt";
+            var path = "logs.txt";
 
             using (var writer = new StreamWriter(path, true))
             {
                 writer.WriteLine(logMessage);
             }
-            
         }
     }
 }

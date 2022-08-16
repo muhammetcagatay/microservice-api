@@ -1,0 +1,24 @@
+version: '3.8'
+services:
+  bookdb:
+    image: postgres
+  moviedb:
+    image: mongo
+  bookapi:
+    image: bookapi_image
+    build: 
+      context: .
+      dockerfile: src/Book/Book.API/Dockerfile
+  movieapi:
+    image: movieapi_image
+    build: 
+      context: .
+      dockerfile: src/Movie/Movie.API/Dockerfile
+  gatewayapi:
+    image: gatewayapi_image
+    build: 
+      context: .
+      dockerfile: src/Gateway/APIGateway/Dockerfile
+volumes:
+  bookdb_volume:
+  moviedb_volume:
