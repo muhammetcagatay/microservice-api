@@ -86,7 +86,6 @@ You can take a look at the programming languages, frameworks, databases and othe
 * [PostgreSQL](https://www.postgresql.org)
 * [Postman](https://www.postman.com)
 * [DBeaver](https://dbeaver.io)
-
 * [Ocelot](https://github.com/ThreeMammals/Ocelot)
 
 
