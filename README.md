@@ -16,10 +16,7 @@
   </a>
 
   <p align="center">
-    The main idea of ​​creating this project is to implement microservices architecture with  latest technology such as .Net 6, MongoDB, PostgreSQL, Docker.
-    <br />
 
-    -->
   </p>
 </div>
 
@@ -33,13 +30,8 @@
     <li><a href="#-features">Features</a></li>
     <li><a href="#hammer-built-with">Built With</a></li>
     <li><a href="#electric_plug-installation">Installation</a></li>
-    <li>
-      <a href="#wrench-devolopment">Devolopment</a>
-      <ul>
-        <li><a href="#file_folder-file-structure">File Structure</a></li>
-        <li><a href="#nut_and_bolt-database-design">Database Design</a></li>
-      </ul>
-    </li>
+    <li><a href="#file_folder-file-structure">File Structure</a></li>
+    <li><a href="#nut_and_bolt-database-design">Database Design</a></li>
     <li><a href="#earth_americas-endpoints">Endpoints</a></li>
     
   </ol>
@@ -52,25 +44,22 @@
 
 <div align="center">
 
-![Movie Services](assets/architecture_diagram.png)
+![Movie Services](./assets/architecture_diagram.png)
 
 </div>
 
 
 
 
-There are many great README templates available on GitHub; however, I didn't find one that really suited my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need -- I think this is it.
+The main idea of ​​creating this project is to implement Microservices Architecture with  latest technology such as .Net 6, MongoDB, PostgreSQL, Docker. There are two services and one API Gateway in the project.
 
-Here's why:
-* Your time should be focused on creating something amazing. A project that solves a problem and helps others
-* You shouldn't be doing the same tasks over and over like creating a README from scratch
-* You should implement DRY principles to the rest of your life :smile:
+* The Movie service uses MongoDB as its database. Movie service is a service that allows us to process movies, actors and categories.
+* The book service uses PostgreSQL as its database. The Book service is a service that allows us to perform operations on books, authors and categories.
+* API Gateway is an API Management tool that stands between clients and microservices. Ocelot used as library in API Gateway
 
-Of course, no one template will serve all projects since your needs may be different. So I'll be adding more in the near future. You may also suggest changes by forking this repo and creating a pull request or opening an issue. Thanks to all the people have contributed to expanding this template!
-
-Use the `BLANK_README.md` to get started.
 
 ## 🎯 Features
+Topics that I aim to learn while developing the project
 -   [Microservices Architecture](https://github.com/muhammetcagatay/microservice-api/tree/master/src)
 -   [Rest API](https://github.com/muhammetcagatay/microservice-api/tree/master/src/Movie/Movie.API)
 -   [Logging](https://github.com/muhammetcagatay/microservice-api/blob/master/src/Movie/Movie.API/Logging/CustomLoggerFactory.cs)
@@ -114,12 +103,9 @@ You can take a look at the programming languages, frameworks, databases and othe
 
 
 <!-- GETTING STARTED -->
-## :wrench: Devolopment
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
 
-### :file_folder: File Structure
+## :file_folder: File Structure
 
 Add a file structure here with the basic details about files, below is an example.
 
@@ -143,23 +129,13 @@ Add a file structure here with the basic details about files, below is an exampl
 
 
 
-### :nut_and_bolt: Database Design
+## :nut_and_bolt: Database Design
 
 _Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
-   ```sh
-   git clone https://github.com/your_username_/Project-Name.git
-   ```
-3. Install NPM packages
-   ```sh
-   npm install
-   ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
-   ```
+![BookDB](./assets/bookdb_diagram.JPG)
+
+![MovieDB](./assets/moviedb_diagram.png)
 <!-- Endpoints -->
 ## :earth_americas: Endpoints
 Now that we’ve learned about the anatomy of our endpoints and the different request methods that we should use, it’s time for some examples:
