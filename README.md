@@ -4,7 +4,7 @@
  
 [![Stars](https://img.shields.io/github/stars/muhammetcagatay/microservice-api?style=social)](https://github.com/muhammetcagatay/microservice-api) 
 [![Docker](https://img.shields.io/badge/Docker-available-green.svg?style=flat&logo=docker)](https://github.com/muhammetcagatay/microservice-api#electric_plug-installation)
-[![GitHub](https://img.shields.io/github/license/emalderson/ThePhish)](https://github.com/emalderson/ThePhish/blob/master/LICENSE)
+<!-- [![GitHub](https://img.shields.io/github/license/emalderson/ThePhish)](https://github.com/emalderson/ThePhish/blob/master/LICENSE) -->
 [![Documentation](https://img.shields.io/badge/Documentation-complete-green.svg?style=flat)](https://github.com/muhammetcagatay/microservice-api)
   
 </div>
