@@ -146,7 +146,7 @@ Add a file structure here with the basic details about files, below is an exampl
 
 <!-- Endpoints -->
 ## :earth_americas: Endpoints
-Listening and serving HTTP on :5000
+Listening and serving API Gateway HTTP on :5000
 
 ### Book Service
 
