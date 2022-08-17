@@ -18,15 +18,7 @@
   <p align="center">
     The main idea of ​​creating this project is to implement microservices architecture with  latest technology such as .Net 6, MongoDB, PostgreSQL, Docker.
     <br />
-    <!--
-    <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
-    <br />
-    <br />
-    <a href="https://github.com/othneildrew/Best-README-Template">View Demo</a>
-    ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Request Feature</a>
+
     -->
   </p>
 </div>
@@ -58,7 +50,14 @@
 <!-- ABOUT THE PROJECT -->
 ## :beginner: About The Project
 
-![Product Name Screen Shot](https://kinsta.com/wp-content/uploads/2019/12/wordpress-rest-api-1024x512.jpg)
+<div align="center">
+
+![Movie Services](assets/architecture_diagram.png)
+
+</div>
+
+
+
 
 There are many great README templates available on GitHub; however, I didn't find one that really suited my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need -- I think this is it.
 
