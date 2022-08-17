@@ -12,13 +12,11 @@
 <br />
 <div align="center">
   <a href="https://github.com/muhammetcagatay/VivaceAPI">
-    <img src="https://www.ukeysoft.com/images/apple-music-icon.jpg" alt="Logo" width="80" height="80">
+    <img src="https://miro.medium.com/max/1024/0*FiZBsN6fu2FuH7nw.png" alt="Logo" width="200">
   </a>
 
-  <h3 align="center">Vivage API</h3>
-
   <p align="center">
-    An awesome README template to jumpstart your projects!
+    The main idea of ​​creating this project is to implement microservices architecture with  latest technology such as .Net 6, MongoDB, PostgreSQL, Docker.
     <br />
     <!--
     <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
