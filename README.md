@@ -12,13 +12,11 @@
 <br />
 <div align="center">
   <a href="https://github.com/muhammetcagatay/VivaceAPI">
-    <img src="https://www.ukeysoft.com/images/apple-music-icon.jpg" alt="Logo" width="80" height="80">
+    <img src="https://miro.medium.com/max/1024/0*FiZBsN6fu2FuH7nw.png" alt="Logo" width="200">
   </a>
 
-  <h3 align="center">Vivage API</h3>
-
   <p align="center">
-    An awesome README template to jumpstart your projects!
+    The main idea of ​​creating this project is to implement microservices architecture with  latest technology such as .Net 6, MongoDB, PostgreSQL, Docker.
     <br />
     <!--
     <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
@@ -134,9 +132,14 @@ Add a file structure here with the basic details about files, below is an exampl
 │   ├── Book
 │   │   ├── Book.API
 │   │   └── Book.sln
+│   ├── Gateway
+│   │   ├── APIGateway
+│   │   └── APIGateway.sln
 ├── .gitattributes
 ├── .gitignore
-└── README.md
+├── README.md
+├── docker-compose.override.yml
+└── docker-compose.yml
 ```
 
 
@@ -189,11 +192,10 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 
 - [x] Develop Book service
 - [x] Develop Movie service
-- [ ] Develop API Gateway
-- [ ] Dockerize the project
-- [ ] Multi-language Support
-    - [ ] Chinese
-    - [ ] Spanish
+- [x] Develop API Gateway
+- [x] Dockerize the project
+- [ ] documentation
+
 
 See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a full list of proposed features (and known issues).
 
