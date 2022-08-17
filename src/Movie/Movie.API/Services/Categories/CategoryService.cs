@@ -27,7 +27,7 @@ namespace Movie.API.Services.Categories
 
             if (category == null)
             {
-                throw new NotFoundException("Category not found");
+                throw new NotFoundException($"Category {id} not found");
             }
 
             var responseGetCategory = _mapper.Map<ResponseGetCategory>(category);
@@ -37,11 +37,6 @@ namespace Movie.API.Services.Categories
         public async Task<Response<IEnumerable<ResponseGetCategory>>> GetAllAsync()
         {
             var categories = await _categoryRepository.GetAllAsync();
-
-            if (categories == null)
-            {
-                throw new NotFoundException("Category not found");
-            }
 
             var responseGetCategories = _mapper.Map<IEnumerable<ResponseGetCategory>>(categories);
 
@@ -53,7 +48,7 @@ namespace Movie.API.Services.Categories
 
             if (category == null)
             {
-                throw new NotFoundException("Category not found");
+                throw new NotFoundException($"Category {id} not found");
             }
 
             var responseGetCategoryWithFilms = _mapper.Map<ResponseGetCategoryWithFilms>(category);
@@ -88,14 +83,16 @@ namespace Movie.API.Services.Categories
         }
         public async Task<Response<ResponseCategory>> UpdateAsync(string id, RequestCategory requestCategory)
         {
-            var category = _mapper.Map<Category>(requestCategory);
+            var category = await _categoryRepository.GetAsync(id);
 
             if (category == null)
             {
-                throw new NotFoundException("Category not found");
+                throw new NotFoundException($"Category {id} not found");
             }
 
+            category = _mapper.Map<Category>(requestCategory);
             category.Id = id;
+            category.UpdateDate = DateTime.Now;
 
             await _categoryRepository.UpdateAsync(id, category);
 
@@ -109,7 +106,7 @@ namespace Movie.API.Services.Categories
 
             if (responseCategory == null)
             {
-                throw new NotFoundException("Category not found");
+                throw new NotFoundException($"Category {id} not found");
             }
 
             await _categoryRepository.DeleteAsync(id);

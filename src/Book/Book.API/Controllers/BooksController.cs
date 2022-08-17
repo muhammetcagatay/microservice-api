@@ -9,7 +9,6 @@ namespace Book.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [ServiceFilter(typeof(NotFoundFilter<BookEntity>))]
     public class BooksController : CustomController
     {
         private readonly IBookService _service;
@@ -18,6 +17,7 @@ namespace Book.API.Controllers
             _service = service;
         }
         [HttpGet("{id}")]
+        [ServiceFilter(typeof(NotFoundFilter<BookEntity>))]
         public async Task<IActionResult> Get(int id)
         {
             return CreateResult(await _service.GetByIdAsync(id));
@@ -33,11 +33,13 @@ namespace Book.API.Controllers
             return CreateResult(await _service.CreateAsync(request));
         }
         [HttpPut("{id}")]
+        [ServiceFilter(typeof(NotFoundFilter<BookEntity>))]
         public async Task<IActionResult> Update(int id, BookRequest request)
         {
             return CreateResult(await _service.UpdateAsync(id, request));
         }
         [HttpDelete("{id}")]
+        [ServiceFilter(typeof(NotFoundFilter<BookEntity>))]
         public async Task<IActionResult> Delete(int id)
         {
             return CreateResult(await _service.DeleteAsync(id));

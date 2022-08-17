@@ -25,9 +25,9 @@ namespace Book.API.Filters
             }
             var id = (int)idValue;
             var repository = _unitOfWork.GetRepository<T>();
-            var anyEntity = await repository.AnyAsync(x => x.Id == id);
+            var anyEntity = await repository.Where(x => x.Id==id).Where(x => !x.IsDelete).SingleOrDefaultAsync();
 
-            if(anyEntity)
+            if(anyEntity!=null)
             {
                 await next.Invoke();
                 return;

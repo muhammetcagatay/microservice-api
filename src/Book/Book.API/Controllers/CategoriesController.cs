@@ -9,7 +9,6 @@ namespace Book.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [ServiceFilter(typeof(NotFoundFilter<Category>))]
     public class CategoriesController : CustomController
     {
         private readonly ICategoryService _service;
@@ -18,6 +17,7 @@ namespace Book.API.Controllers
             _service = service;
         }
         [HttpGet("{id}")]
+        [ServiceFilter(typeof(NotFoundFilter<Category>))]
         public async Task<IActionResult> Get(int id)
         {
             return CreateResult(await _service.GetByIdAsync(id));
@@ -28,6 +28,7 @@ namespace Book.API.Controllers
             return CreateResult(await _service.GetAllAsync());
         }
         [HttpGet("getwithbooks/{id}")]
+        [ServiceFilter(typeof(NotFoundFilter<Category>))]
         public async Task<IActionResult> GetWithBooks(int id)
         {
             return CreateResult(await _service.GetCategoryWithBooksAsync(id));
@@ -38,11 +39,13 @@ namespace Book.API.Controllers
             return CreateResult(await _service.CreateAsync(request));
         }
         [HttpPut("{id}")]
+        [ServiceFilter(typeof(NotFoundFilter<Category>))]
         public async Task<IActionResult> Update(int id, CategoryRequest request)
         {
             return CreateResult(await _service.UpdateAsync(id, request));
         }
         [HttpDelete("{id}")]
+        [ServiceFilter(typeof(NotFoundFilter<Category>))]
         public async Task<IActionResult> Delete(int id)
         {
             return CreateResult(await _service.DeleteAsync(id));

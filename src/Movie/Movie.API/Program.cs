@@ -18,6 +18,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllers();
+
 builder.Services.AddScoped(typeof(IRepository<>), typeof(GenericRepository<>));
 builder.Services.AddScoped<IActorRepository, ActorRepository>();
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
@@ -25,13 +26,12 @@ builder.Services.AddScoped<IFilmRepository, FilmRepository>();
 builder.Services.AddScoped(typeof(IActorService), typeof(ActorService));
 builder.Services.AddScoped(typeof(IFilmService), typeof(FilmService));
 builder.Services.AddScoped(typeof(ICategoryService), typeof(CategoryService));
+
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 builder.Services.Configure<MongoDbSettings>(builder.Configuration.GetSection("MongoDbSettings"));
-
 builder.Services.AddSingleton<IMongoDbSettings>(serviceProvider =>
                 serviceProvider.GetRequiredService<IOptions<MongoDbSettings>>().Value);
-
 builder.Services.AddSingleton<IMongoDataContext, MongoDataContext>();
 
 builder.Services.AddSwaggerGen();
@@ -42,18 +42,11 @@ Log.Logger = new LoggerConfiguration().ReadFrom.Configuration(builder.Configurat
 
 var app = builder.Build();
 
-
-
-// Configure the HTTP request pipeline.
-
-
 app.UseSwagger();
 app.UseSwaggerUI();
 
 
 app.UseHttpsRedirection();
-
-//app.UseMiddleware<RequestResponseMiddleware>();
 
 app.UseMiddleware<ExceptionHandlerMiddleware>();
 

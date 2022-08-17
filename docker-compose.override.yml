@@ -15,7 +15,7 @@ services:
     container_name: moviedb
     restart: always
     ports: 
-      - "27017:27017"
+      - "27018:27017"
     volumes:
       - moviedb_volume:/data/db
   bookapi:
