@@ -33,6 +33,7 @@
     <li><a href="#file_folder-file-structure">File Structure</a></li>
     <li><a href="#nut_and_bolt-database-design">Database Design</a></li>
     <li><a href="#earth_americas-endpoints">Endpoints</a></li>
+    <li><a href="#rocket-roadmap">Roadmap</a></li>
     
   </ol>
 </details>
@@ -76,14 +77,14 @@ Topics that I aim to learn while developing the project
 
 You can take a look at the programming languages, frameworks, databases and other tools I used while developing the project below.
 
-* [.Net Core](https://nextjs.org/)
-* [Docker](https://reactjs.org/)
-* [MongoDB](https://vuejs.org/)
-* [PostgreSQL](https://angular.io/)
-* [Postman](https://svelte.dev/)
-* [DBeaver](https://laravel.com)
-* [EF Core](https://getbootstrap.com)
-* [Ocelot](https://getbootstrap.com)
+* [.Net Core](https://docs.microsoft.com/tr-tr/dotnet/core/introduction)
+* [Docker](https://www.docker.com)
+* [MongoDB](https://www.mongodb.com)
+* [PostgreSQL](https://www.postgresql.org)
+* [Postman](https://www.postman.com)
+* [DBeaver](https://dbeaver.io)
+* [EF Core](https://docs.microsoft.com/tr-tr/ef/core/)
+* [Ocelot](https://github.com/ThreeMammals/Ocelot)
 
 
 ## :electric_plug: Installation
@@ -131,35 +132,42 @@ Add a file structure here with the basic details about files, below is an exampl
 
 ## :nut_and_bolt: Database Design
 
-_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
+#### BookDB Database Diagram
 
 ![BookDB](./assets/bookdb_diagram.JPG)
 
+<br>
+
+#### MovieDB Normalized Data Models
+
 ![MovieDB](./assets/moviedb_diagram.png)
+
 <!-- Endpoints -->
 ## :earth_americas: Endpoints
-Now that we’ve learned about the anatomy of our endpoints and the different request methods that we should use, it’s time for some examples:
+Listening and serving HTTP on :5000
 
 ### Book Service
 
 | Method | URL | Description |
 | --- | --- | --- |
-| `GET` | `api/actors` | `List of all actors` |
+| `GET` | `services/book/authors` | `List of all authors` |
+| `GET` | `services/book/authors/1` | `Returns the author with id 1` |
+| `GET` | `services/book/authors/getwithbooks/1` | `Returns the movies with the author` |
+| `Post` | `services/book/authors` | `Adds new author` |
+| `Put` | `services/book/authors/1` | `Updates the author` |
+| `Delete` | `services/book/authors/1` | `Delete the author` |
+
 
 ### Movie Service
 
 | Method | URL | Description |
 | --- | --- | --- |
-| `GET` | `api/actors` | `List of all actors` |
-
-<!-- USAGE EXAMPLES -->
-## :zap: Usage
-
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
-_For more examples, please refer to the [Documentation](https://example.com)_
-
-
+| `GET` | `services/movie/films` | `List of all films` |
+| `GET` | `services/movie/films/1` | `Returns the film with id 1` |
+| `GET` | `services/movie/films/getwithactors/1` | `Returns the actors with the film` |
+| `Post` | `services/movie/films` | `Adds new film` |
+| `Put` | `services/movie/films/1` | `Updates the film` |
+| `Delete` | `services/movie/films/1` | `Delete the film` |
 
 
 <!-- ROADMAP -->
@@ -169,10 +177,7 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 - [x] Develop Movie service
 - [x] Develop API Gateway
 - [x] Dockerize the project
-- [ ] documentation
-
-
-See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a full list of proposed features (and known issues).
+- [x] Documentation
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
