@@ -80,12 +80,13 @@ Topics that I aim to learn while developing the project
 You can take a look at the programming languages, frameworks, databases and other tools I used while developing the project below.
 
 * [.Net Core](https://docs.microsoft.com/tr-tr/dotnet/core/introduction)
+* [Entity Framework Core](https://docs.microsoft.com/tr-tr/ef/core/)
 * [Docker](https://www.docker.com)
 * [MongoDB](https://www.mongodb.com)
 * [PostgreSQL](https://www.postgresql.org)
 * [Postman](https://www.postman.com)
 * [DBeaver](https://dbeaver.io)
-* [EF Core](https://docs.microsoft.com/tr-tr/ef/core/)
+
 * [Ocelot](https://github.com/ThreeMammals/Ocelot)
 
 
