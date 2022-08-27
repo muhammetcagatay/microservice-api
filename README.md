@@ -89,6 +89,8 @@ You can take a look at the programming languages, frameworks, databases and othe
 
 ## :electric_plug: Installation
 
+Follow the steps below to run the project in your local
+
 1. Clone the repo
    ```sh
    git clone https://github.com/muhammetcagatay/microservice-api.git
@@ -108,7 +110,7 @@ You can take a look at the programming languages, frameworks, databases and othe
 
 ## :file_folder: File Structure
 
-Add a file structure here with the basic details about files, below is an example.
+Project directory structure
 
 ```
 ├── src
@@ -144,7 +146,7 @@ Add a file structure here with the basic details about files, below is an exampl
 
 <!-- Endpoints -->
 ## :earth_americas: Endpoints
-Listening and serving API Gateway HTTP on :5000
+Listening and serving API Gateway HTTP on : 5000
 
 ### Book Service
 
