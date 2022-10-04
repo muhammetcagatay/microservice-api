@@ -28,6 +28,12 @@ builder.Services.AddScoped(typeof(NotFoundFilter<>));
 
 var app = builder.Build();
 
+using (var scope = app.Services.CreateScope())
+{
+    var dataContext = scope.ServiceProvider.GetRequiredService<BookDataContext>();
+    dataContext.Database.Migrate();
+}
+
 
 app.UseSwagger();
 app.UseSwaggerUI();
